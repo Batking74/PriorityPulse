@@ -1,0 +1,95 @@
+:root {
+    --width: 35%
+}
+
+.Form-Main-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    margin: 10px var(--width) 30px var(--width);
+    row-gap: 40px;
+    padding: 70px 0 70px 0;
+}
+
+/* Styling Containers */
+.Welcome-Container,
+.Input-Container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Welcome Container Styles */
+.Welcome-Container {
+    align-items: center;
+    row-gap: 20px;
+    width: 75%;
+}
+
+.Welcome-Container h1 {
+    color: #000;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Welcome-Container p:nth-child(3) {
+    background: #000;
+    color: #fff;
+    width: fit-content;
+    padding: 5px 15px 5px 15px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+/* Input Container Styles */
+.Input-Container {
+    row-gap: 35px;
+    width: 70%;
+}
+
+.Input-Container input,
+.Input-Container button {
+    border: none;
+    border-bottom: solid 1px #000;
+}
+
+.Input-Container input {
+    outline: none;
+    padding: 5px 0 10px 5px;
+    font-size: 15px;
+}
+
+.Input-Container button {
+    border-radius: 20px;
+    font-size: 20px;
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(90deg, #24f447b0, rgb(186, 237, 1));
+}
+
+.Input-Container button:hover {
+    cursor: pointer;
+}
+
+.NextOption-Link {
+    margin-top: 30px;
+}
+
+/* Responsive Web Design */
+@media screen and (max-width: 1300px) {
+    .Form-Main-Container {
+        margin: 10px calc(var(--width) - 10%) 30px calc(var(--width) - 10%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Form-Main-Container {
+        margin: 10px calc(var(--width) - 25%) 30px calc(var(--width) - 25%);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Form-Main-Container {
+        margin: 10px calc(var(--width) - 33%) 30px calc(var(--width) - 33%);
+    }
+}
