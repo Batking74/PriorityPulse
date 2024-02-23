@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: #000000ae;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 40px;
+    padding: 20px 0 20px 0;
+}
+
+body {
+    background: peachpuff;
+}
+
+nav div {
+    display: flex;
+    column-gap: 40px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 30px;
+}
+
+nav div a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+@media screen and (max-width: 530px){
+    nav {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    nav div a {
+        font-size: 17px;
+    }
+    
+}

@@ -1,0 +1,8 @@
+/* Status Column */
+.Priority-Status-Container div {
+    text-align: center;
+    background: #6adaff;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    border-bottom: solid 1px #000;
+}

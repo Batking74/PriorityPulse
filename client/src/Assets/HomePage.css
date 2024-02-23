@@ -1,0 +1,121 @@
+.Main-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+
+/* Styling All Sections */
+.Add-Priority-Btn-Container,
+.Select-Category-Container,
+.Priority-List-Main-Container {
+    display: flex;
+    width: 70%;
+    padding: 25px 50px 25px 50px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.Add-Priority-Btn-Container button:hover,
+.Select-Category-Container div button:hover {
+    background: #b97900b0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Add-Priority-Btn-Container button,
+.Select-Category-Container div button {
+    background: #ffbe45;
+    border-radius: 10px;
+    border: none;
+    height: 70%;
+}
+
+/* Create Priority Button */
+.Add-Priority-Btn-Container {
+    justify-content: center;
+}
+
+.Add-Priority-Btn-Container button {
+    font-size: 25px;
+    font-weight: 500;
+    padding: 20px 50px 20px 50px;
+    width: 40%;
+}
+
+/* Priority List Styles */
+.Priority-List-Main-Container {
+    flex-direction: column;
+    row-gap: 20px;
+    height: 100%;
+}
+
+.Priority-List-Container {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 100px;
+}
+
+.Priority-Category-Container div {
+    background-color: red;
+}
+.Priority-Names-Container,
+.Priority-Status-Container,
+.Priority-Category-Container,
+.Delete-Container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    text-align: center;
+}
+
+.Priority-Names-Container {
+    text-align: left;
+}
+
+#Incomplete-Priority {
+    background: red;
+}
+
+
+@media screen and (max-width: 1170px) {
+    .Add-Priority-Btn-Container button {
+        font-size: 15px;
+    }
+
+    .Priority-Names-Container p,
+    .Priority-Status-Container p,
+    .Priority-Category-Container p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .Priority-List-Container {
+        column-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .Priority-List-Main-Container,
+    .Add-Priority-Btn-Container,
+    .Select-Category-Container {
+        width: 95%;
+    }
+    
+    .Add-Priority-Btn-Container button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .Add-Priority-Btn-Container button {
+        font-size: 12px;
+    }
+
+    .Priority-Names-Container p,
+    .Priority-Status-Container p,
+    .Priority-Category-Container p {
+        font-size: 12px;
+    }
+}

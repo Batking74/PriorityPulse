@@ -1,0 +1,35 @@
+.Select-Category-Container {
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+/* Category Sort Button Styles */
+.Select-Category-Container div {
+    display: flex;
+    column-gap: 20px;
+}
+
+.Select-Category-Container div button {
+    font-size: 15px;
+    padding: 10px 10px 10px 10px;
+    width: 15%;
+}
+
+/* Category Column */
+.Priority-Category-Container div {
+    background: #91e013;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    border-bottom: solid 1px #000;
+}
+
+@media screen and (max-width: 680px) {
+    .Select-Category-Container div {
+        justify-content: center;
+        column-gap: 20px;
+    }
+
+    .Select-Category-Container div button {
+        width: 100%;
+    }
+}
