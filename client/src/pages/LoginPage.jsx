@@ -1,14 +1,16 @@
+import FormTemplate from "../components/UI/FormTemplate";
 import React from "react";
 
 export default function LoginPage() {
     return (
-        <div>
-            <h1></h1>
-            <p></p>
-            <input type="text" />
-            <input type="password" />
-            <button>Login</button>
-            <p>Dont have an Account? <a href="/SignUp">Sign Up</a></p>
-        </div>
+        <FormTemplate pageData={{
+            WelcomeMessage: 'Prioritize Tasks and keep track with your goals!',
+            NexOptionRoute: '/SignUp',
+            TextDisplay: {
+                ButtonText: 'Login',
+                LinkText1: 'Dont have an Account?',
+                LinkText2: 'Sign Up'
+            }
+        }} />
     )
 }
