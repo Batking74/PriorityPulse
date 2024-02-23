@@ -10,7 +10,7 @@ const typeDefs = `
     type Priority {
         _id: ID
         priorityText: String
-        completed: bolean
+        completed: boolean
         category: String
         Tasks: [Task]
     }

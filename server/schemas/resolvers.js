@@ -47,8 +47,71 @@ const resolvers = {
 
             return { token, user };
         },
-        
-    }
+        addPriority: async (parent, { priorityText }, context) => {
+            if (context.user) {
+                const priority = await Priority.create({
+                    priorityText,
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { priorities: priority._id } }
+                );
+
+                return Priority;
+            }
+            throw AuthenticationError;
+        },
+        addTask: async (parent, { priorityId, taskText }, context) => {
+            if (context.user) {
+                return Priority.findOneAndUpdate(
+                    { _id: priorityId },
+                    {
+                        $addToSet: {
+                            tasks: { taskText },
+                        },
+                    },
+                    {
+                        new: true,
+                        runValidators: true,
+                    }
+                );
+            }
+            throw AuthenticationError;
+        },
+        removePriority: async (parent, { priorityId }, context) => {
+            if (context.user) {
+                const priority = await Priority.findOneAndDelete({
+                    _id: priorityId,
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { priorities: priority._id } }
+                );
+
+                return priority;
+            }
+            throw AuthenticationError;
+        },
+        removeTask: async (parent, { priorityId, taskId }, context) => {
+            if (context.user) {
+                return Priority.findOneAndUpdate(
+                    { _id: priorityId },
+                    {
+                        $pull: {
+                            tasks: {
+                                _id: taskId,
+                            },
+                        },
+                    },
+                    { new: true }
+                );
+            }
+            throw AuthenticationError;
+        },
+    },
 };
+
 
 module.exports = resolvers;
