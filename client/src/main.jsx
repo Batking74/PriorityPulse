@@ -5,9 +5,10 @@ import React from 'react';
 // Loading Stylesheets
 import './Assets/Navigation.css';
 import './Assets/HomePage.css';
+import './Assets/NameComponents.css';
+import './Assets/PriorityStatus.css';
 import './Assets/CategoryComponent.css';
 import './Assets/DeleteComponents.css';
-import './Assets/PriorityStatus.css';
 import './Assets/FormTemplate.css';
 
 import CompletedPrioritiesPage from './pages/CompletedPrioritiesPage';

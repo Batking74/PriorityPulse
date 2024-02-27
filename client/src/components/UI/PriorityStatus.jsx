@@ -5,10 +5,10 @@ export default function PriorityStatus() {
         <div className='Priority-Status-Container'>
             <h3>Status</h3>
             <div>
-                <p>Compleated</p>
+                <p>Completed</p>
             </div>
             <div>
-                <p>Compleated</p>
+                <p>Completed</p>
             </div>
             <div id='Incomplete-Priority'>
                 <p>Not Complete</p>
