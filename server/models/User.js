@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
 const bcrypt = require('bcrypt');
-const Priority = require("./Priority");
+const prioritySchema = require("./Priority");
 
 const userSchema = new Schema({
   username: {
@@ -20,7 +18,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  priorities: [Priority.schema],
+  savedPriorities: [prioritySchema],
 });
 
 // Set up pre-save middleware to create password
@@ -38,6 +36,11 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+//Will return the amount of priorities a user will have
+userSchema.virtual('priorityCount').get(function () {
+  return this.savedPriorities.length;
+});
+
+const User = model("User", userSchema);
 
 module.exports = User;

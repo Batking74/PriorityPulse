@@ -1,22 +1,29 @@
-const mongoose = require('mongoose');
-
 const { Schema } = mongoose
 
+// Creating my subdocument schema
 const prioritySchema = new Schema({
   title: {
     type: String,
     required: true,
     trim: true
   },
-  priorityText: String,
+  priorityDescription: {
+    type: String,
+    required: true
+  },
+  priorityId: {
+    type: String,
+    required: true,
+  },
   isCompleted: {
     type: Boolean,
     default: false
   },
-  dueDate: Date,
+  dueDate: {
+    type: Date 
+  },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
+    type: String,
     required: true
   },
   tasks : [
@@ -27,6 +34,4 @@ const prioritySchema = new Schema({
   ],
 }, { timestamps: true });
 
-const Priority = mongoose.model('Priority', prioritySchema);
-
-module.exports = Priority;
+module.exports = prioritySchema;
