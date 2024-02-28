@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Priority = require("./Priority");
+const Priority = require("./priority");
 
 const userSchema = new Schema({
   username: {
