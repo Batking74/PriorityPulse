@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { LOGIN } from '../../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 
 
@@ -6,15 +8,16 @@ export default function FormTemplate({ pageData }) {
     const { WelcomeMessage, TextDisplay, NexOptionRoute } = pageData;
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [login, {loading, error}] = useMutation(LOGIN);
 
     // Validating Users data
     const validateInput = () => {
         if(username != '' && password != '') {
             if(NexOptionRoute != '/Login') {
-                sendToBackend('/Api/Signup', 'Error Occured trying to Signup!');
+                // sendToBackend('/Api/Signup', 'Error Occured trying to Signup!');
             }
             else {
-                sendToBackend('/Api/Login', 'Error Occured trying to Login!');
+                // sendToBackend('/Api/Login', 'Error Occured trying to Login!');
             }
         }
         else alert('All Feilds Must Be Filled Out!');
@@ -22,22 +25,25 @@ export default function FormTemplate({ pageData }) {
     
     // Sends Data to backend to do work
     const sendToBackend = async (api, errorMsg) => {
-        try {
-            const res = await fetch(api);
-            if(res.ok) {
-                console.log(username)
-                console.log(password)
-                // Redirect the User to their new created Account
-                // Redirect the User to the users Account
-            }
-            else {
-                alert(res);
-            }
-        }
-        catch(error) {
-            console.error(`${errorMsg} Error: ${error}`);
-            throw error;
-        }
+    console.log(login)
+
+        // try {
+        //     const res = await fetch(api);
+        //     if(res.ok) {
+        //         console.log(username)
+        //         console.log(password)
+                
+        //         Redirect the User to their new created Account
+        //         Redirect the User to the users Account
+        //     }
+        //     else {
+        //         alert(res);
+        //     }
+        // }
+        // catch(error) {
+        //     console.error(`${errorMsg} Error: ${error}`);
+        //     throw error;
+        // }
     }
 
     // Keeping Track of State Changes in inputs

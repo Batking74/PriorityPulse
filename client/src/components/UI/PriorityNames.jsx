@@ -27,7 +27,6 @@ export default function PriorityNames() {
                     Go to the gym
                     <FontAwesomeIcon onClick={() => startEditing(0)} icon={faPenToSquare} />
                 </p>
-                {editingPriority && <OverlayForm setShowPriorityForm={setEditingPriority} />}
                 {dropdownVisibility[0] && <DropdownComponent tasks={[
                     {
                         Key: 1,
@@ -36,7 +35,7 @@ export default function PriorityNames() {
                     {
                         Key: 2,
                         Task: 'Do 30 Pushups'
-                    },
+                    }
                 ]} />}
             </div>
             <div>
@@ -52,7 +51,7 @@ export default function PriorityNames() {
                     {
                         Key: 2,
                         Task: 'Eat Almonds'
-                    },
+                    }
                 ]} />}
             </div>
             <div>
@@ -68,9 +67,15 @@ export default function PriorityNames() {
                     {
                         Key: 2,
                         Task: 'Walk after 5 laps'
-                    },
+                    }
                 ]} />}
             </div>
+
+            {/* Rendering Overlay Form on "Fontawsome Icon" click */}
+            {editingPriority && <OverlayForm props={{
+                DisplayType: 'Regular',
+                setShowPriorityForm: setEditingPriority
+            }} />}
         </div>
     )
 }

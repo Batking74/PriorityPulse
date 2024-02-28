@@ -1,3 +1,4 @@
+// Importing Components/Modules
 import { CategorySelectComponent, CategoryDisplayComponent } from '../components/UI/CategoryComponent';
 import PriorityStatus from '../components/UI/PriorityStatus';
 import DeletePriority from '../components/UI/DeletePriority';
@@ -21,7 +22,7 @@ export default function HomePage() {
             <div className='Priority-List-Main-Container'>
                 <h2>Priority List</h2>
 
-                {/* Displaying All Priorities */}
+                {/* Rendering All Priorities */}
                 <div className='Priority-List-Container'>
                     <PriorityNames />
                     <PriorityStatus />
@@ -30,8 +31,11 @@ export default function HomePage() {
                 </div>
             </div>
 
-            {/* Displaying Overlay Form on "Add Priority" button click */}
-            {showPriorityForm && <OverlayForm setShowPriorityForm={setShowPriorityForm} />}
+            {/* Rendering Overlay Form on "Add Priority" button click */}
+            {showPriorityForm && <OverlayForm props={{
+                DisplayType: 'Regular',
+                setShowPriorityForm: setShowPriorityForm
+            }} />}
         </div>
     );
 }

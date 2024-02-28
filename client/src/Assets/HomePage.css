@@ -17,14 +17,16 @@
 }
 
 .Add-Priority-Btn-Container button:hover,
-.Select-Category-Container div button:hover {
+.Select-Category-Container div button:hover,
+.Divider button:nth-child(1) {
     background: #b97900b0;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .Add-Priority-Btn-Container button,
-.Select-Category-Container div button {
+.Select-Category-Container div button,
+.Divider button:nth-child(1) {
     background: #ffbe45;
     border-radius: 10px;
     border: none;
