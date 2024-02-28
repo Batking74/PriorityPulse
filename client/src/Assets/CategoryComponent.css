@@ -23,6 +23,29 @@
     border-bottom: solid 1px #000;
 }
 
+/* Category Overlay Styles */
+.Category-Form-Container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.Category-Form-Container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+.Category-Form-Container div label {
+    font-size: 20px;
+}
+.Category-Form-Container div input {
+    font-size: 17px;
+    padding: 10px 0 10px 5px;
+}
+
 @media screen and (max-width: 680px) {
     .Select-Category-Container div {
         justify-content: center;

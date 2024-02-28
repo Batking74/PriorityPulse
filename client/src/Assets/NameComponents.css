@@ -1,0 +1,26 @@
+.Priority-Names-Container {
+    text-align: left;
+}
+
+.Priority-Name {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    align-items: center;
+    padding: 8px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Priority-Name svg {
+    color: #dc6e00;
+}
+
+.Priority-Name svg:hover {
+    cursor: grab;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
