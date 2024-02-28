@@ -3,30 +3,31 @@ const typeDefs = `
         _id: ID
         username: String
         email: String
-        password: String
         Priorities: [Priority]!
     }
 
     type Priority {
         _id: ID
+        title: String
         priorityText: String
-        completed: boolean
-        category: String
-        Tasks: [Task]
+        isCompleted: Boolean
+        dueDate: String
+        category: Category
+        tasks: [String]
     }
 
-    type Task {
+    type Category {
         _id: ID
-        taskText: String
+        name: String
     }
 
     type Auth {
-        token: ID!
+        token: ID
         user: User
     }
 
     type Query {
-        users: [User]
+        categories: [Category]
         user(username: String!): User
         priorities(username: String): [Priority]
         priority(priorityID: ID!): Priority
@@ -36,10 +37,8 @@ const typeDefs = `
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        addPriority(priorityText: String!): Priority
-        addTask(priorityId: ID!, taskText: String!): Priority
+        addPriority(title: String, priorityText:String, isCompleted: Boolean, dueDate: String, category: [ID!], tasks: [String]): Priority
         removePriority(priorityId: ID!): Priority
-        removeTask(priorityId: ID!, TaskId: ID!): Priority
     }
 `
 

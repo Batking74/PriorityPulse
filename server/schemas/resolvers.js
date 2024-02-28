@@ -1,20 +1,24 @@
-const { User, Priority } = require("../models")
+const { User, Priority, Category } = require("../models")
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async () => {
-            return User.find().populate("priorities");
+        categories: async () => {
+            return await Category.find();
         },
         user: async (parent, { username }) => {
             return User.findOne({ username }).populate("priorities");
         },
-        priorities: async (parent, { username }) => {
+        priorities: async (parent, { username, category }) => {
             const params = username ? { username } : {};
-            return Priority.find(params);
+            
+            if (category) {
+                params.category = category;
+            }
+            return Priority.find(params).populate("category");
         },
         priority: async (parent, { priorityId }) => {
-            return Priority.findOne({ _id: priorityId });
+            return Priority.findOne({ _id: priorityId }).populate("category");
         },
         me: async (parent, args, context) => {
             if (context.user) {
@@ -25,8 +29,8 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { username, email, password }) => {
-            const user = await User.create({ username, email, password });
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
             const token = signToken(user);
             return { token, user };
         },
@@ -47,35 +51,18 @@ const resolvers = {
 
             return { token, user };
         },
-        addPriority: async (parent, { priorityText }, context) => {
+        addPriority: async (parent, args, context) => {
             if (context.user) {
-                const priority = await Priority.create({
-                    priorityText,
+                const priority = await Priority.findOneAndUpdate({
+                    args,
                 });
 
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { priorities: priority._id } }
+                    { $push: { priorities: priority._id } }
                 );
 
-                return Priority;
-            }
-            throw AuthenticationError;
-        },
-        addTask: async (parent, { priorityId, taskText }, context) => {
-            if (context.user) {
-                return Priority.findOneAndUpdate(
-                    { _id: priorityId },
-                    {
-                        $addToSet: {
-                            tasks: { taskText },
-                        },
-                    },
-                    {
-                        new: true,
-                        runValidators: true,
-                    }
-                );
+                return priority;
             }
             throw AuthenticationError;
         },
@@ -94,24 +81,9 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
-        removeTask: async (parent, { priorityId, taskId }, context) => {
-            if (context.user) {
-                return Priority.findOneAndUpdate(
-                    { _id: priorityId },
-                    {
-                        $pull: {
-                            tasks: {
-                                _id: taskId,
-                            },
-                        },
-                    },
-                    { new: true }
-                );
-            }
-            throw AuthenticationError;
-        },
     },
 };
 
 
-module.exports = resolvers;
+
+    module.exports = resolvers;

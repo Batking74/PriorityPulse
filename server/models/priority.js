@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
-const prioritySchema = new mongoose.Schema({
+const { Schema } = mongoose
+
+const prioritySchema = new Schema({
   title: {
     type: String,
     required: true,
     trim: true
   },
-  description: String,
+  priorityText: String,
   isCompleted: {
     type: Boolean,
     default: false
@@ -14,8 +16,15 @@ const prioritySchema = new mongoose.Schema({
   dueDate: Date,
   category: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category'
+    ref: 'Category',
+    required: true
   },
+  tasks : [
+    {
+      type: String, 
+      trim: true,
+    },
+  ],
 }, { timestamps: true });
 
 const Priority = mongoose.model('Priority', prioritySchema);
