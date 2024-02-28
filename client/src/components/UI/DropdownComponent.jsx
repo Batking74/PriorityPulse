@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-
-export default function DropdownComponent({ tasks, Key }) {
+export default function DropdownComponent({ tasks }) {
     const [taskChecked, setTaskChecked] = useState([]);
     const toggleTask = (index) => {
         setTaskChecked((prevChecked) => {
@@ -11,14 +10,14 @@ export default function DropdownComponent({ tasks, Key }) {
         });
     };
     return (
-        <div key={Key} className="Dropdown">
-            {tasks.map(({ Task, id }) => {
+        <div className="Dropdown">
+            {tasks.map(({ Task, Key }) => {
                 return (
-                    <p>
+                    <p key={Key}>
                         <input
                             type="checkbox"
-                            checked={taskChecked[id] || false}
-                            onChange={() => toggleTask(id)} />
+                            checked={taskChecked[Key] || false}
+                            onChange={() => toggleTask(Key)} />
                         {Task}
                     </p>
                 )
