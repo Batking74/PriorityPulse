@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "concurrently": "^8.2.0"
   }
 }
