@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { LOGIN } from '../../../utils/mutations';
-import { useMutation } from '@apollo/client';
-
-
 
 export default function FormTemplate({ pageData }) {
     const { WelcomeMessage, TextDisplay, NexOptionRoute } = pageData;
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
-    const [login, {loading, error}] = useMutation(LOGIN);
 
     // Validating Users data
     const validateInput = () => {
