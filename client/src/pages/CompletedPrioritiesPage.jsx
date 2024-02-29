@@ -9,7 +9,7 @@ export default function CompletedPrioritiesPage() {
             <div className='Priority-List-Main-Container'>
                 <h2>Completed Priorities</h2>
                 <div className='Priority-List-Container'>
-                    <PriorityNames />
+                    <PriorityNames isComplete={true} />
                     <PriorityStatus />
                     <CategoryDisplayComponent />
                 </div>

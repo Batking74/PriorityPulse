@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function OverlayForm({ props }) {
-    const { DisplayType, setShowPriorityForm, displayCategory } = props;
+    const { DisplayType, setShowPriorityForm, displayCategory, Tasks, Priority } = props;
     const [newCategory, setNewCategory] = useState('');
     const [newPriority, setNewPriority] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -41,6 +41,7 @@ export default function OverlayForm({ props }) {
                                 <input
                                     placeholder='Enter your priority'
                                     maxLength={50}
+                                    value={Priority ? Priority : ''}
                                     onInput={({ target }) => setNewPriority(target.value)}
                                     type="text" />
                                 <input
@@ -63,9 +64,12 @@ export default function OverlayForm({ props }) {
                             {/* Display the list of todos */}
                             <div>
                                 <ul>
-                                    {todos.map((todo, index) => (
-                                        <li key={index}>{todo}</li>
-                                    ))}
+                                    {
+                                        Tasks
+                                            ? Tasks.map(({ Task }, index) => <li key={index}>{Task}</li>)
+                                            : todos.map((todo, index) => <li key={index}>{todo}</li>)
+                                    }
+                                    {Tasks ? todos.map((todo, index) => <li key={index}>{todo}</li>) : ''}
                                 </ul>
                             </div>
                         </div>
