@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "cd server && npm start",
+    "build": "cd client && npm run build",
     "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm run dev\""
   },
   "keywords": [],
