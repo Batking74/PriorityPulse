@@ -4,9 +4,8 @@
   "description": "",
   "main": "vite.config.js",
   "scripts": {
-    "start": "npm i && npm run build",
     "dev": "npm run build && vite",
-    "build": "vite build"
+    "build": "npm i && vite build"
   },
   "keywords": [],
   "author": "",
