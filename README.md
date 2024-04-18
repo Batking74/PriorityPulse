@@ -1,6 +1,6 @@
 # PriorityPulse
 
-![Image of PriorityPluse MERN Stack Project](./PriorityPulse%20-%202_23_2024.webp)
+![Image of PriorityPluse MERN Stack Project](./Assets/PriorityPulse%20-%202_23_2024.webp)
 
 ## Description
 The Priority Tracker App is a powerful tool designed to help you organize and achieve your goals effectively. Whether you're focusing on personal growth, professional development, health, or any other area of your life, this app provides a structured approach to listing and tracking your progress and keeping track of your important skill development priorities.
